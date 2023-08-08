@@ -1,33 +1,40 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
+import { Component } from 'react'
 import './App.css'
 
-function App() {
-  const [count, setCount] = useState(0)
+// 궁금한 점 : 현재는 클래스형 컴포넌트를 쓰지 않고, 함수형 컴포넌트
+// 쓰는 이유가 무엇인가 ?
+class AddNumber extends Component {
+  render(){
+    return(
+      <div>
+        <h1>Add Number</h1>
+        <input type='button' value='+'></input>
+        <input type='text' value='0'></input>
+      </div>
+    )
+  }
+}
 
+class AddNumberRoot extends Component{
+  render(){
+    return (
+      <div>
+        <h1>Add Number Root</h1>
+      </div>
+    )
+  }
+}
+
+function App() {
+  
   return (
     <>
-      <div>
-        <a href="https://vitejs.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
+      <div className='App'>
+        <h1>Root</h1>
+        <AddNumberRoot></AddNumberRoot>
+        <AddNumber></AddNumber>
       </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.jsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
+
     </>
   )
 }
