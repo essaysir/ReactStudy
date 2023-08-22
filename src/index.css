@@ -1,5 +1,11 @@
-div {
-  border: 5px solid red;
-  margin: 10px;
-  color: red;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+body {
+  @apply flex flex-col items-center;
+}
+#root {
+  /*width 를 full 로 하고, 최대 너비는 2xl를 넘지 않도록 하는 것*/
+  @apply w-full max-w-screen-2xl;
 }
