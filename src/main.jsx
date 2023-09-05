@@ -7,8 +7,11 @@ import { RouterProvider, createBrowserRouter } from 'react-router-dom'
 import NotFound from './pages/NotFound.jsx'
 import Home from './pages/Home.jsx'
 import Root from './pages/Root.jsx'
-import Products from './components/Products.jsx'
-import Login from "./pages/Login.jsx";
+import MyCart from './pages/MyCart';
+import ProtectedRoute from './pages/ProtectedRoute';
+import NewProducts from './pages/NewProducts'
+
+
 
 const router = createBrowserRouter([
   {
@@ -17,7 +20,13 @@ const router = createBrowserRouter([
     errorElement : <NotFound/>,
     children : [
       { index : true, element: <Home/> },
-      { path:'/products/new' , element: <Products/>},
+      { path:'/products/new' , element: <ProtectedRoute><NewProducts/></ProtectedRoute>},
+      { path:'/carts' , 
+      element : 
+      <ProtectedRoute>
+        <MyCart/>
+      </ProtectedRoute>
+      },
     ]
   },
 

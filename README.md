@@ -1,8 +1,12 @@
-# React + Vite
+<!-- Heading 제목 -->
+# React 를 이용한 <br> 쇼핑몰 구현
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+<!-- line ___ 을 통해 밑줄을 그을 수 있다 -->
 
-Currently, two official plugins are available:
+기술스택 
+- React
+- Firebase
+- React router, query
+ 
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+ 
