@@ -1,10 +1,16 @@
 import { useState } from 'react'
 import Button from '../components/ui/Button'
+import {uploadimage} from "../api/uploader.js";
 export default function NewProducts() {
     const [ product , setProduct ] = useState({});
     const [file , setFile ] = useState('');
     const handleChange = (e)=>{
         const { name , value, files } = e.target ;
+        // name, value , files 가 어떻게 입력되는지 확인해보자 ! 
+        // console.log( name ); // file , title  등등 
+        // console.log( value); // 입력한 내용 및 C:\fakepath\미샤.png
+        // console.log( files); // FileList {0: File, length: 1}
+
         if ( name === 'file'){
             setFile( files && files[0]);
             return ; 
@@ -14,6 +20,7 @@ export default function NewProducts() {
     const handleSubmit = (e)=>{
         e.preventDefault();
         // 제품의 사진을 Cloudinary에 업로드 하고 URL 을 획득
+        uploadimage(file).then(url => {console.log(url)});
         // Firebase 에 새로운 제품을 추가함
     };
     return <section>
