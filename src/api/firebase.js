@@ -8,7 +8,8 @@ import {
     onAuthStateChanged,
     GithubAuthProvider
 } from "firebase/auth";
-import { getDatabase, ref,  get } from "firebase/database";
+import { getDatabase, ref,  get ,set } from "firebase/database";
+import uuid from 'react-uuid';
 
 const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY ,
@@ -59,3 +60,14 @@ async function adminUser(user){
     })
 }
 
+export async function addNewProduct(product ,image){
+    const id = uuid();
+    await set(ref(database, `products/${id}`),{
+        ...product ,
+        id ,
+        price : parseInt(product.price),
+        image ,
+        options : product.options.split(','),
+    });
+
+}
